@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/tichaiti/tichaiti-livecode-twitterbot-nodejs/issues"
   },
-  "homepage": "https://github.com/tichaiti/tichaiti-livecode-twitterbot-nodejs#readme"
+  "homepage": "https://github.com/tichaiti/tichaiti-livecode-twitterbot-nodejs#readme",
+  "dependencies": {
+    "twitter": "^1.7.1"
+  }
 }
