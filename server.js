@@ -8,16 +8,8 @@ var client = new Twitter({
   access_token_secret: process.env.ACCESS_SECRET
 });
  
-var params = {screen_name: 'BarackObama'};
-client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets[0]);
-  } else {
-      console.log('Error: ', error);
-  }
-});
-
-client.post('statuses/update', {status: 'Tichaiti - Live Twitter Example - Ignore this tweet'},  function(error, tweet, response) {
+const twitterMessage = 'Tichaiti - Live Twitter Example - Ignore this tweet';
+client.post('statuses/update', {status: twitterMessage},  function(error, tweet, response) {
     if(error) throw error;
     console.log(tweet);  // Tweet body.
     console.log(response);  // Raw response object.
