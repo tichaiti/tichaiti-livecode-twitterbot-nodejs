@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="containe">
+
+        <form action="">
+            <div class="input">
+                <input type="text" name="" id="tweet" placeholder="Enter your tweet">
+            </div>
+            <button>Post Tweet</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script>
+
+        $('button').on('click', (event) => {
+            event.preventDefault();
+            const tweet = $('#tweet').val();
+
+            // Post Tweet
+            $.ajax({
+                url: '/twitter/message',
+                method: 'POST',
+                data: {
+                    tweet
+                }
+            })
+                .then(() => {
+                    alert.log('Data successfully posted');
+                    console.log('Data successfully posted');
+                })
+                .catch((error) => {
+                    alert.log('Error: ', error);
+                    console.log('Error: ', error);
+                });
+        })
+        
+
+    </script>
+    
+</body>
+</html>
