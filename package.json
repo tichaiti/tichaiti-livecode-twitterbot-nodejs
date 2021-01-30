@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/tichaiti/tichaiti-livecode-twitterbot-nodejs#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "twitter": "^1.7.1"
   }
 }
