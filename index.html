@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
     <title>Twitter Bot - Available</title>
-</head>
-<body>
 
-    <div class="containe">
-
-        <form action="">
-            <div class="input">
-                <input type="text" name="" id="tweet" placeholder="Enter your tweet">
-            </div>
-            <button>Post Tweet</button>
-        </form>
+    <style>
+        button {
+            margin-top: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container-sm">
+      <div class="mb-3">
+        <label for="tweet" class="form-label"
+          >Tweet</label
+        >
+        <textarea
+          class="form-control"
+          id="tweet"
+          rows="3"
+        ></textarea>
+        <button type="button" class="btn btn-primary">Post tweet</button>
+      </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
     <script>
+      $("button").on("click", (event) => {
+        event.preventDefault();
+        const tweet = $("#tweet").val();
 
-        $('button').on('click', (event) => {
-            event.preventDefault();
-            const tweet = $('#tweet').val();
-
-            // Post Tweet
-            $.ajax({
-                url: '/twitter/message',
-                method: 'POST',
-                data: {
-                    tweet
-                }
-            })
-                .then(() => {
-                    alert('Data successfully posted');
-                    console.log('Data successfully posted');
-                })
-                .catch((error) => {
-                    alert('Error: ', error);
-                    console.log('Error: ', error);
-                });
+        // Post Tweet
+        $.ajax({
+          url: "/twitter/message",
+          method: "POST",
+          data: {
+            tweet,
+          },
         })
-        
-
+          .then(() => {
+            alert("Data successfully posted");
+            console.log("Data successfully posted");
+          })
+          .catch((error) => {
+            alert("Error: ", error);
+            console.log("Error: ", error);
+          });
+      });
     </script>
-    
-</body>
+  </body>
 </html>
